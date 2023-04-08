@@ -13,7 +13,9 @@ const [password,setPassword]=useState('')
 const handelAdd=async(values)=>{ 
 await postAuthContact(values)
 navigate('/login')
-}
+} 
+
+return  (
     <div>
       
       <main>
@@ -46,7 +48,7 @@ navigate('/login')
 </div>
 </main>
     </div>
-  
+   )
 }
   
 export default Register
