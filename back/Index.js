@@ -6,7 +6,7 @@ const connectdb =require('./config/Connectdb')
 const cors = require ('cors')
 const userRoutes= require('./routes/user')
 const app = express()
-
+const filmRoute =require('./routes/Film')
 const port = process.env.PORT || 4000
 
 
@@ -18,7 +18,7 @@ connectdb()
 
 //route el auth 
 app.use('/auth',userRoutes)
-
+app.use('/movie',filmRoute)
 
 app.listen(port,err=>{
     err?console.log(err):console.log(`you are connected to the port: ${port}`)
