@@ -2,7 +2,6 @@ var jwt = require('jsonwebtoken');
 
  const UserSchema = require('../model/user')
 
-
  exports.isAuth=async(req,res,next)=>{
     try{
 

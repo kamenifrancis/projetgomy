@@ -31,7 +31,7 @@ exports.login=async(req,res)=>{
     try{
 const {email,password}=req.body
 const found = await UserSchema.findOne({email})
-
+console.log(found)
 if(!found){return res.json({msg:'please register'})}
 
 const match = await bcrypt.compare(password,found.password )

@@ -19,7 +19,7 @@ const handelLogin=async(values)=>{
 try{
 const res = await axios.post('http://localhost:4000/auth/login',values)
 await localStorage.setItem('token',res.data.token)
-navigate('/Private')
+navigate('/app/Private')
 }catch(err){
   
 console.log(err)

@@ -7,7 +7,8 @@ const addingAuth = await axios.post('http://localhost:4000/auth/register',{...va
 
 
 export const fetchAcountAuth = async()=>{
-    const token = localStorage.getItem('token')
-    const {data} = await axios.get('http://localhost:4000/auth/moncompte',{hearders:{Authorization:token}} )
-    return data
+  
+    const token=localStorage.getItem('token');
+    const {data} = await axios.get('http://localhost:4000/auth/uracount',{headers:{Authorization:token}} );
+    return data 
 }
