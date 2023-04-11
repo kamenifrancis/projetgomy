@@ -10,8 +10,8 @@ import Navbar from '../navbar/Navbar'
 const PrivateRoute = () =>{ 
 const dispatch = useDispatch()
 const navigate = useNavigate()
-const authentifcation = useSelector(state=>state.authUser)
-console.log('authentifcation user redux', authentifcation ) 
+const auth = useSelector(state=>state.authUser)
+console.log('authentifcation user redux', auth ) 
 
 const  getUserAuth = async()=>{
    const data =  await fetchAcountAuth()
@@ -33,9 +33,9 @@ return (
     <div>
          <div>
 {
-  token ? (<>   <Navbar auth={authentifcation} logout={logout} /> 
+  token ? (<>   <Navbar auth={auth} logout={logout} /> 
 
-  {authentifcation.role === "admin" ? (<Admin  auth={authentifcation} /> ):( <User   auth={authentifcation}/>) } 
+  {auth.role === "admin" ? (<Admin  auth={auth} /> ):( <User   auth={auth}/>) } 
   
    </>) : (<Login/>)
 }

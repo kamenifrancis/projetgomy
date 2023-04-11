@@ -2,12 +2,12 @@ import React from 'react'
 import './Navbar.css'
 import { Button } from 'bootstrap'
 
-const Navbar = ({auth}) => {
+const Navbar = ({auth,  }) => {
  console.log('auth',auth)
   return (
-   
+ <div>navbar</div>
 
-<h1>navbar</h1>                               
+                 
        
 
   )
