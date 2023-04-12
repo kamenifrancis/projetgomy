@@ -1,13 +1,18 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card' 
+import './MovieCard.css' 
+
 
 const MovieCards = ({Movie ,  commentaire,}) => {
-  console.log('Movie',Movie)
+  console.log('Movie',Movie) 
+ 
+  
+  
   return (
-    <div>
+    <div >
         <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src= {Movie.image} />
+      <Card.Img  variant="top" src= {Movie.image} />
       <Card.Body>
         <Card.Title>{Movie.titre}</Card.Title> 
         <Card.Text>{Movie.personnage}</Card.Text>
@@ -20,8 +25,8 @@ const MovieCards = ({Movie ,  commentaire,}) => {
        <source src={Movie.video} type='video/mp4' />
     </video> 
     <input placeholder='ajouter un commentaire'value={commentaire} onChange = {(e)=> (e.target.value)} />
-    <button >commenter</button>   
-      </Card.Body>
+    <button className='comment' >commenter</button>  
+ </Card.Body>
     </Card>
     </div> 
     

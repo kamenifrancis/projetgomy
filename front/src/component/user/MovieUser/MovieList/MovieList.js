@@ -1,7 +1,8 @@
 import React from 'react'
 import MovieCards from './MovieCard'
+
 const MovieList = ({MovieData}) => { 
-  console.log('MovieData',MovieData) 
+   
   return ( 
     <div>
       {
@@ -9,7 +10,7 @@ const MovieList = ({MovieData}) => {
             
       } 
       
-    </div>
+      </div>
   )
 }
 

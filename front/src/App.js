@@ -7,7 +7,7 @@ import Navba from './component/navbar/Navbar';
 import { useState } from 'react';
 import Add from './component/user/MovieUser/AddMovie'; 
 import MovieList from './component/user/MovieUser/MovieList/MovieList';
-
+import Footer from './component/Footer';
 
 const App = ()=> { 
   const [MovieData,SetMovieData]= useState([
@@ -47,10 +47,14 @@ const App = ()=> {
       <Route path='/' element={<Register/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/app/Private' element={<PrivateRoute/>}/>
-     
+      <Route path='/footer' element={<Footer/>}/>
+      <Route path='/movieList'element={<MovieList MovieData={MovieData} />}/>
+      <Route path='/addMovie' element={ <Add add= {add} />}/> 
+    
     </Routes> 
-    <MovieList MovieData={MovieData} />  
-    <Add add= {add} />
+    
+     
+    
     </div>
   );
 }

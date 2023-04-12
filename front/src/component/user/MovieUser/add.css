@@ -1,0 +1,44 @@
+.add{
+    font-size: medium;
+    border-radius: 50px; 
+   border-color: rgb(23, 214, 16); 
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   border-width: 40px;
+} 
+.titre{
+    border-color: rgb(11, 124, 224); 
+    border-width: 20px; 
+ 
+}    
+.auteur{
+    border-color: rgb(212, 140, 16);
+    border-width: 20px;
+   
+} 
+.rate{
+    border-color: rgb(51, 7, 163); 
+    
+    border-width: 20px;
+    
+} 
+.decrire{
+    border-color: rgb(10, 192, 53); 
+    
+    border-width: 20px; 
+
+}
+.date{
+    border-color: rgb(187, 10, 10); 
+    
+    border-width: 20px; 
+}
+.photo{
+    border-color: rgb(223, 216, 11); 
+   
+    border-width: 20px;
+}
+.video{
+    border-color: rgb(244, 7, 232); 
+   
+    border-width: 20px;
+}
