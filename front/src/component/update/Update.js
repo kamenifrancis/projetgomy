@@ -1,27 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate,useParams } from 'react-router-dom'
+import { updateFilm,getUniqueFilm } from '../../api/movieapi'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { postFilm } from '../../../api/movieapi'
-import './add.css'
-import Footer from '../../Footer'
-const Add=()=>{
-  const [titre,setTitre] = useState('')
-  const [image,setImage] = useState('')
-  const [video,setVideo] = useState('')
-  const [description,setDescription] = useState('')
-  const [date,setDate] = useState('')
-  const [personnage,setPersonnage] = useState('')
-  const [rate,setRate] = useState('')
+
+function UpdateMovie() { 
+    const [titre,setTitre] = useState('')
+    const [image,setImage] = useState('')
+    const [video,setVideo] = useState('')
+    const [description,setDescription] = useState('')
+    const [date,setDate] = useState('')
+    const [personnage,setPersonnage] = useState('')
+    const [rate,setRate] = useState('')
   const navigator = useNavigate()
-  const handelAdd = async(values)=>{
-   try{
-    await postFilm(values)
-    navigator('/list')
-   }catch(err){console.log(err)}
+const {id}=useParams()
+
+
+
+  const update=async(values,idg)=>{
+    await updateFilm(values,idg)
+    navigator('/list') 
+
+
+   
+  
   }
+  
   return (
-   <div >
-  <div>
+    
+
+  <div >
+    <div>
   <input className='titre' placeholder='titre du film' value={titre} onChange = {(e)=>setTitre (e.target.value)}  />
   <span ></span>
   </div>
@@ -49,12 +57,12 @@ const Add=()=>{
       <input className='auteur' placeholder='auteur'value={personnage} onChange = {(e)=> setPersonnage(e.target.value)} />
       <span ></span>
       </div>
-      <a><button className='add' type="button" onClick={()=>handelAdd({titre,rate,description,date,image,video,personnage})}  >add movie</button></a> 
-      <p>
-        <Footer/>
-      </p>
-    </div>
+      <a><button type="button" onClick={()=>update(id,{image,personnage,titre,description,date,rate,video})}  >add new movie</button></a>
+  </div>
+    
+   
+
   )
 }
 
-export default Add
+export default UpdateMovie

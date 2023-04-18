@@ -1,6 +1,8 @@
 import React from 'react'
 import './footer.css'
 import {Link} from 'react-router-dom'
+import MessageList from './message/Envoi'
+
 const Footer = () => {
   return (
 <div>
@@ -25,51 +27,11 @@ const Footer = () => {
         <i className="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i>{" "}
         Email: quete.technologie@gmail.com
       </p>
-      <br />
-      <form action="/action_page.php" target="_blank">
-        <p>
-          <input
-            className="w3-input w3-border"
-            type="text"
-            placeholder="Name"
-            required=""
-            name="Name"
-          />
-        </p>
-        <p>
-          <input
-            className="w3-input w3-border"
-            type="text"
-            placeholder="Email"
-            required=""
-            name="Email"
-          />
-        </p>
-        <p>
-          <input
-            className="w3-input w3-border"
-            type="text"
-            placeholder="Subject"
-            required=""
-            name="Subject"
-          />
-        </p>
-        <p>
-          <input
-            className="w3-input w3-border"
-            type="text"
-            placeholder="Message"
-            required=""
-            name="Message"
-          />
-        </p>
-        <p>
-          <button className="w3-button w3-black" type="submit">
-            <i className="fa fa-paper-plane" /> ENVOYER
-          </button>
-        </p> 
-      </form> 
+      <br /> 
+     < MessageList/>
+     
       <li><a><Link to={'/login'}>Sing in</Link></a></li>
+      <li><a><Link to={'/'}>Deconexion</Link></a></li>
       
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTipOiKbyLtaOZDYK_ek3vUQhd41ByqSEArKA&usqp=CAU" alt="Description de mon image"

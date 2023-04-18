@@ -1,15 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MovieCards from './MovieCard'
-
-const MovieList = ({MovieData}) => { 
-   
+import { fetchFilm } from '../../../../api/movieapi'
+import { setMovie } from '../../../../store/movieSlice'
+import {useSelector,useDispatch} from 'react-redux'
+import SearchBar from '../../../recherche/Bar';
+const MovieList = () => { 
+  const Movies = useSelector(state=>state.movie) 
+  const dispatch=useDispatch()
+  console.log('movie issue de redux',MovieList)
+  const getAll = async()=>{
+   const data = await fetchFilm() 
+   dispatch(setMovie(data.movie))
+  }
+  useEffect( ()=>{
+    getAll()
+  },[])
   return ( 
-    <div>
+    <div>  
+    <h1 className='site'>AllTube</h1>
+      <p>
+      <SearchBar/> 
+      </p> 
+      <div>
       {
-        MovieData.map((el)=>   <MovieCards Movie = {el} /> )
-            
+       
+       Movies.map( (e)=>  <MovieCards  movies = {e}/>)    
       } 
-      
+      </div>
       </div>
   )
 }

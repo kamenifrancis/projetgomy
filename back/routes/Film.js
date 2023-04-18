@@ -5,19 +5,28 @@ const {getfilm,addfilm,updatedfilm,deletefilm} = require('../controlllers/Film')
 
 
 
-filmRoute.get('/',getfilm )
+filmRoute.get('/getfilm/:id',getfilm )
 
 filmRoute.post('/addfilm',addfilm )
 
+ 
 
 
-
- filmRoute.delete('/:id',deletefilm) 
+ filmRoute.delete('deletefilm/:id', async(req,res)=>{
+    try{
+        const {id}=req.params
+        const deletefilm = await filmSchema.findByIdAndDelete(id)
+        res.status(200).json( { message:'you delete file'} )
+}catch(err){
+    console.log(err)
+}
+ }
+ )
 
   
 
      
-filmRoute.put('/:id', updatedfilm ) 
+filmRoute.put('updatefilm/:id', updatedfilm ) 
     
 
 

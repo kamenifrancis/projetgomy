@@ -1,35 +1,68 @@
-import React from 'react'
+
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card' 
+import { useNavigate } from 'react-router-dom'
 import './MovieCard.css' 
+import React from 'react';
+import { deleteFilm } from '../../../../api/movieapi'; 
+import CommentSection from '../../../CommentSection'; 
+import LikeButton from '../../../reagir/Like';
+import VideoPlayer from '../../../reagir/Vue';
 
+const MovieCards = ({movies ,getfilm}) => { 
+  const navigate = useNavigate()
+  const handeldelet = async(id)=>{
+    await deleteFilm (id) 
+    navigate('/list') 
+  }
+const handelUpdat=()=>{
+  navigate( `/update/${movies._id}`)
+  
+}
 
-const MovieCards = ({Movie ,  commentaire,}) => {
-  console.log('Movie',Movie) 
+  console.log('movies',movies) 
  
-  
-  
-  return (
-    <div >
-        <Card style={{ width: '18rem' }}>
-      <Card.Img  variant="top" src= {Movie.image} />
-      <Card.Body>
-        <Card.Title>{Movie.titre}</Card.Title> 
-        <Card.Text>{Movie.personnage}</Card.Text>
-        <Card.Text>
-         {Movie.description}
-        </Card.Text> 
-        <Card.Title>{Movie.date}</Card.Title>
-        <Card.Title>{Movie.rate}</Card.Title> 
-        <video width="320" height="240" controls>
-       <source src={Movie.video} type='video/mp4' />
-    </video> 
-    <input placeholder='ajouter un commentaire'value={commentaire} onChange = {(e)=> (e.target.value)} />
-    <button className='comment' >commenter</button>  
- </Card.Body>
-    </Card>
-    </div> 
+ 
+ return (
+     <div class="container">
+ 
+  <div class="row">
+    <label>{movies.image}</label>
+   <span></span>
     
+  </div>
+  <div class="row">
+    <label>{movies.personnage}</label>
+    <span></span>
+   
+  </div>
+  <div class="row">
+    <label>{movies.titre}</label>
+    <span></span> 
+    <div>
+    <label>{movies.description}</label>
+    <span></span>  
+    </div> 
+    <div>
+    <label>{movies.date}</label>
+    <span></span> 
+    <div>
+    <label>{movies.rate}</label>
+    <span></span> 
+    </div>
+    </div> 
+    <div>
+    <label>{movies.video}</label>
+    <span></span> 
+    </div>
+        <VideoPlayer/>
+        <a href='#'><button  onClick={()=>handelUpdat()}>update</button></a>
+    <a href='#'><button className='supr' onClick={()=>handeldelet(movies._id)}>delete</button></a>
+     <LikeButton/>
+    <p>
+<CommentSection />
+</p>
+    </div> 
+    </div>
   )
 }
 

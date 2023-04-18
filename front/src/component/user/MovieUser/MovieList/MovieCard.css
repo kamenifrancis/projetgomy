@@ -36,4 +36,9 @@
     text-decoration: none;
     cursor: pointer;
   }
-  
+  .supr{
+    margin-left: 500px;
+    
+    color: #ff9900; 
+    font-size: x-large;
+  }

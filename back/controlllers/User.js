@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken')
 exports.register=async(req,res)=>{
     try{
         //envoie de data objet mil user
-        //dest bich nst3mel les variables
+       
 const {name,email,password}=req.body
 //la recherche spcifique mt3 el user email unique 
 const found = await UserSchema.findOne({email})
