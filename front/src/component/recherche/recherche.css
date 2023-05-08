@@ -1,7 +1,10 @@
 .search{
     
-    margin-left: 500px;
+    margin-left: 300px; 
+border-color: rgb(165, 8, 8);
+width: 500px; 
+border-style:groove;
 } 
 .cherch{
-    color: rgb(218, 100, 10);
+    color: #a31418;
 }

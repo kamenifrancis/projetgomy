@@ -1,5 +1,5 @@
 .comment{
-    border-color: #ff9900; 
+    border-color:  #a31418; 
      font-size: small; 
     width: 5rem;
 } 
@@ -37,8 +37,62 @@
     cursor: pointer;
   }
   .supr{
-    margin-left: 500px;
+    margin-left: 200px;
     
-    color: #ff9900; 
-    font-size: x-large;
+    color: #a31418; 
+  
+  } 
+  .up{
+    color: #a31418;
+    
   }
+  .fichier{
+    display: flex;
+justify-content: space-around;
+
+  } 
+  .play{
+    padding-right: 15cm;
+  }
+  .apro{
+    display: flex;
+    justify-content: space-around;
+    background-color: #cb6d6d;
+    }
+    .titr{
+      padding-right: 25cm;
+
+       }
+       .content{
+       text-align: start;
+       background-color: #cb6d6d;
+      
+       }
+       .mod{
+        padding-right: 10cm;
+       
+        
+       }
+       .eff{
+       
+        padding-right: 30cm;
+        
+       } 
+       .modifier{
+        display: flex;
+       
+       } 
+      .temps{
+        background-color: #cb6d6d;
+      }
+     .note{
+      background-color: #cb6d6d;
+      }
+      .ici{
+        background-color: #cb6d6d;
+      }
+      
+      
+       
+
+       

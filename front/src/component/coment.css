@@ -4,8 +4,11 @@
 } 
 .ajout{
     border-width: 5px;
-    color: rgb(205, 128, 11);
+    color: #a31418;
 }
 .rpdr{
     font-size: x-small;
+} 
+.cmn{
+    background-color: #cb6d6d;
 }

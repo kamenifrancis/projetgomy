@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const filmschema = mongoose.Schema({
-    titre:String, 
+   titre:String, 
    image:String,
    video:String,
    description:String,

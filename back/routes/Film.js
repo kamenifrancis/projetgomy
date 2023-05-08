@@ -12,21 +12,13 @@ filmRoute.post('/addfilm',addfilm )
  
 
 
- filmRoute.delete('deletefilm/:id', async(req,res)=>{
-    try{
-        const {id}=req.params
-        const deletefilm = await filmSchema.findByIdAndDelete(id)
-        res.status(200).json( { message:'you delete file'} )
-}catch(err){
-    console.log(err)
-}
- }
- )
+ filmRoute.delete('/:id',deletefilm)
+ 
 
   
 
      
-filmRoute.put('updatefilm/:id', updatedfilm ) 
+filmRoute.put('/:id', updatedfilm ) 
     
 
 

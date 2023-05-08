@@ -3,9 +3,10 @@ import './coment.css'
 function CommentSection( {  handleDeleteReply,handleSubmitReply,handleNewReplyChange}) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  
 
   return (
-    <div>
+    <div className="cmn">
       {/* afficher les commentaires existants */}
       {comments.map((comment) => (
         <div key={comment.id}>
@@ -92,5 +93,9 @@ function CommentSection( {  handleDeleteReply,handleSubmitReply,handleNewReplyCh
     }
     )   
     }
-  }
-      export default CommentSection
+    }
+export default CommentSection
+   
+
+
+

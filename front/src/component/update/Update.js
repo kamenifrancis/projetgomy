@@ -1,68 +1,81 @@
-import React, { useEffect } from 'react'
-import { useNavigate,useParams } from 'react-router-dom'
-import { updateFilm,getUniqueFilm } from '../../api/movieapi'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Navbar from '../navbar/Navbar';
+import './update.css'
+function  UpdateMovie(id,description,titre,rate,image,video,date,personnage) {
+  const [data, setData] = useState({});
 
-function UpdateMovie() { 
-    const [titre,setTitre] = useState('')
-    const [image,setImage] = useState('')
-    const [video,setVideo] = useState('')
-    const [description,setDescription] = useState('')
-    const [date,setDate] = useState('')
-    const [personnage,setPersonnage] = useState('')
-    const [rate,setRate] = useState('')
-  const navigator = useNavigate()
-const {id}=useParams()
+  useEffect(() => {
+    // Récupération des données de l'élément depuis la base de données
+    axios.get('http://localhost:4000/movie/getfilm/:id')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
 
-
-
-  const update=async(values,idg)=>{
-    await updateFilm(values,idg)
-    navigator('/list') 
-
-
-   
+  const handleFormSubmit = (event) => {
   
-  }
-  
-  return (
-    
+    // Envoi des données modifiées à la base de données
+    axios.put(`http://localhost:4000/movie/${id}`, data)
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
-  <div >
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  return ( 
     <div>
-  <input className='titre' placeholder='titre du film' value={titre} onChange = {(e)=>setTitre (e.target.value)}  />
-  <span ></span>
-  </div>
-  <div>
-      <input className='rate' placeholder='rate du film'value={rate} onChange = {(e)=> setRate(e.target.value)} />
-      <span ></span>
-      </div>
-      <div>
-      <input className='decrire' placeholder='description du film'value={description} onChange = {(e)=>setDescription (e.target.value)} />
-      <span ></span>
-      </div>
-      <div>
-      <input className='date' placeholder='date du film'value={date} onChange = {(e)=>setDate (e.target.value)} />
-      <span ></span>
-      </div>
-      <div>
-      <input className='photo' placeholder='image du film'value={image} onChange = {(e)=> setImage(e.target.value)} />
-      <span ></span>
-      </div>
-      <div>
-      <input className='video' placeholder='video du film'value={video} onChange = {(e)=> setVideo(e.target.value)} />
-      <span ></span>
-      </div>
-      <div>
-      <input className='auteur' placeholder='auteur'value={personnage} onChange = {(e)=> setPersonnage(e.target.value)} />
-      <span ></span>
-      </div>
-      <a><button type="button" onClick={()=>update(id,{image,personnage,titre,description,date,rate,video})}  >add new movie</button></a>
-  </div>
+     <Navbar/>
+    <section className='sec'>
+       
     
+     
+      <form onSubmit={handleFormSubmit}>
+       
+        <input  className='titre' type="text" id="title" name="title" placeholder='titre' value={data.title} onChange={handleInputChange} />
+        <div />
+        <div>
+       
+        <input className='rate' type="text" id="rate" name="rate" placeholder='rate' value={data.rate} onChange={handleInputChange} />
+        </div>
+        
+        <textarea className='decrire' id="description" name="description" placeholder='description' value={data.description} onChange={handleInputChange} />
+        <div /> 
+        <div>
+     
+        <input className='date' type="text" id="date" name="date" placeholder='date' value={data.date} onChange={handleInputChange} />
+        </div> 
+        <div>
+       
+        <input className='photo'  placeholder='image du film'value={data.image} onChange = {handleInputChange} />
+        </div> 
+        <div>
+        
+        <input  className='video' type="video" id="video" name="video" placeholder='video' value={data.video} onChange={handleInputChange} />
+        </div> 
+        <div>
    
-
-  )
+        <input  className='auteur' type="text" id="personnage" name="personnage" placeholder='auteur' value={data.personnage} onChange={handleInputChange} />
+        </div> 
+       
+                <button  className='add' onClick={()=> handleFormSubmit({titre,rate,description,date,image,video,personnage})} type="button">Submit</button>
+      </form>
+    </section>
+    </div>
+  );
 }
 
-export default UpdateMovie
+export default  UpdateMovie;

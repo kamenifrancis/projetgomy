@@ -8,10 +8,10 @@ export const postFilm = async(values)=>{
 }
 
 export const updateFilm = async(id,values)=>{
-    const updated = await axios.put( `http://localhost:4000/movie/updatefilm/:id/${id}`, {...values})
+    const updated = await axios.put( `http://localhost:4000/movie/${id}`, {...values})
 }
 export const deleteFilm = async(id)=>{
-    const deletedFilm = await axios.delete( `http://localhost:4000/movie/deletefilm/${id}`)
+    const deletedFilm = await axios.delete( `http://localhost:4000/movie/${id}`)
 }
 export const getUniqueFilm = async(id,values)=>{
     const {data} = await axios.get( `http://localhost:4000/movie/getfilm/:id/${id}`, {...values})

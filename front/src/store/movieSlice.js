@@ -3,17 +3,17 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const movieSlice = createSlice({
 name: 'movie', 
-initialState:{
+initialState: [{
     
-        titre:"update", 
-         image:"redux",
-        video:"redux",
-         description:"redux",
-         rate:10,
-         date:"redux",
-         personnage:"redux"
+        titre:"", 
+         image:"",
+        video:"",
+         description:"",
+         rate:"",
+         date:"",
+         personnage:""
       
-},
+}],
 reducers: {
     setMovie:(state,action)=>{
         return action.payload

@@ -2,13 +2,13 @@ import React from 'react'
 import './footer.css'
 import {Link} from 'react-router-dom'
 import MessageList from './message/Envoi'
-import Navbar from './navbar/Navbar'
 
-const Footer = () => {
+
+const Foota = () => {
   return (
    
 <div>
-<Navbar/>
+
 <div className="ma-classe">
       
       
@@ -55,4 +55,4 @@ const Footer = () => {
   )
      }  
 
-export default Footer
+export default Foota
